@@ -5,8 +5,15 @@ import socket from 'socket.io';
 var app = express();
 var server = http.Server(app);
 var io = socket(server); 
+
+app.set('port', process.env.PORT || 3000); 
+server.listen(app.get('port'), ()=> console.log("Servidor escuchando")); 
  
 app.use(express.static("public")); 
+
+app.get('/', function (req, res){
+  res.sendFile(__dirname + '/public');
+}); 
 
 io.on("connection", function(socket){
   socket.on("newuser", function(username){
@@ -18,7 +25,5 @@ io.on("connection", function(socket){
   socket.on("chat", function(message){
     socket.broadcast.emit("chat", message); 
   });
-}); 
-
-server.listen(3000); 
+});
 
