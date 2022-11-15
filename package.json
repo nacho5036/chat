@@ -1,0 +1,21 @@
+{
+  "name": "2_sockets_basicos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.15.2",
+    "install": "^0.8.8",
+    "nodemon": "^2.0.20",
+    "socket.io": "^1.7.2" 
+  },
+  "devDependencies": {},
+  "type": "module",
+  "scripts": {
+    "start": "nodemon run",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC" 
+}
